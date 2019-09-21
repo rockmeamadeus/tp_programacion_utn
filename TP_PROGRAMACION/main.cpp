@@ -23,7 +23,7 @@ void insertar(struct Genero[], int &, Genero, int);
 
 void insertar_ordenado(struct Genero[], int &, Genero);
 
-void inicializarArray(struct Genero [], int, int, const char *);
+void inicializarArray(struct Genero [], int, int);
 
 
 int main() {
@@ -95,9 +95,9 @@ int main() {
     struct Genero v_accion[cantidad_peliculas];
     struct Genero v_drama[cantidad_peliculas];
 
-    inicializarArray(v_terror, cantidad_peliculas, 0, NULL);
-    inicializarArray(v_accion, cantidad_peliculas, 0, NULL);
-    inicializarArray(v_drama, cantidad_peliculas, 0, NULL);
+    inicializarArray(v_terror, cantidad_peliculas, 0);
+    inicializarArray(v_accion, cantidad_peliculas, 0);
+    inicializarArray(v_drama, cantidad_peliculas, 0);
 
     cont = 0;
     int cont_terror = 0;
@@ -274,10 +274,8 @@ void insertar(Genero genero[], int &longitud, Genero nuevoGenero, int posicion) 
  * @param genero el array de libros.
  * @param longitud longitud del array.
  * @param valor_default_codigo valor default para el codigo.
- * @param valor_default_nombre valor default para el nombre.
  */
-void
-inicializarArray(struct Genero genero[], int longitud, int valor_default_codigo, const char *valor_default_nombre) {
+void inicializarArray(struct Genero genero[], int longitud, int valor_default_codigo) {
 
     for (int i = 0; i < longitud; ++i) {
         genero[i].codigo = valor_default_codigo;
