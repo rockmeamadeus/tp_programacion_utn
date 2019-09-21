@@ -141,6 +141,11 @@ int main() {
 
     }
 
+    //luego de insertar ordenado, escribo en el archivo de terror.
+    for (int i = 0; i < cont_terror; ++i) {
+        fwrite(&v_terror[i], sizeof(struct Genero), 1, terror);
+    }
+
     fclose(biblioteca);
     fclose(drama);
     fclose(accion);
