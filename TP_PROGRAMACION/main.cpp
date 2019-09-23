@@ -152,60 +152,72 @@ int main() {
     fclose(terror);
 
     std::cout << "--- FINALIZO EL PROCESAMIENTO DEL 'ARCHIVO BIBLIOTECA.DAT' ---" << std::endl;
-    std::cout << "Usted desea ver el contenido de algun archivo (S/N)?." << std::endl;
 
+    std::cout << "Usted desea ver el contenido de algun listado (S/N)?" << std::endl;
     char respuesta_usario;
-    std::cin >> respuesta_usario;
-
-    if (toupper(respuesta_usario) == 'S') {
-
-        do {
-            std::cout << "Que listado desea ver?tipo (A = Accion, D = Drama , T = Terror, X para salir)" << std::endl;
-            std::cin >> respuesta_usario;
-            respuesta_usario = toupper(respuesta_usario);
-
-            switch (respuesta_usario) {
-                case 'A':
-                    if (cont_accion == 0) {
-                        std::cout << "No hay libros de accion para mostrar" << std::endl;
-                    } else {
-                        std::cout << "Listando los libros de Accion: " << std::endl;
-                        listarGenero(v_accion, cont_accion);
-                    }
-                    break;
-                case 'D':
-                    if (cont_drama == 0) {
-                        std::cout << "No hay libros de drama para mostrar" << std::endl;
-                    } else {
-                        std::cout << "Listando los libros de Drama: " << std::endl;
-                        listarGenero(v_drama, cont_drama);
-                    }
-
-                    break;
-                case 'T':
-                    if (cont_terror == 0) {
-                        std::cout << "No hay libros de terror para mostrar" << std::endl;
-                    } else {
-                        std::cout << "Listando los libros de Terror: " << std::endl;
-                        listarGenero(v_terror, cont_terror);
-                    }
-                    break;
-                case 'X':
-                    std::cout << "Saliendo del programa... " << std::endl;
-                    break;
-                default:
-                    std::cout << "Opcion incorrecta!" << std::endl;
-                    break;
-            }
-
-        } while (respuesta_usario != 'X');
 
 
-    }
+    do {
+
+        std::cin >> respuesta_usario;
+        respuesta_usario = toupper(respuesta_usario);
+
+        if (respuesta_usario != 'S' && respuesta_usario != 'N') {
+            std::cout << "Opcion incorrecta!.Usted desea ver el contenido de algun listado (S/N)?"
+                      << std::endl;
+        }
+
+        if (respuesta_usario == 'S') {
+
+            do {
+                std::cout << "Que listado desea ver?tipo (A = Accion, D = Drama , T = Terror, X para salir)"
+                          << std::endl;
+                std::cin >> respuesta_usario;
+                respuesta_usario = toupper(respuesta_usario);
+
+
+                switch (respuesta_usario) {
+                    case 'A':
+                        if (cont_accion == 0) {
+                            std::cout << "No hay libros de accion para mostrar" << std::endl;
+                        } else {
+                            std::cout << "Listando los libros de Accion: " << std::endl;
+                            listarGenero(v_accion, cont_accion);
+                        }
+                        break;
+                    case 'D':
+                        if (cont_drama == 0) {
+                            std::cout << "No hay libros de drama para mostrar" << std::endl;
+                        } else {
+                            std::cout << "Listando los libros de Drama: " << std::endl;
+                            listarGenero(v_drama, cont_drama);
+                        }
+
+                        break;
+                    case 'T':
+                        if (cont_terror == 0) {
+                            std::cout << "No hay libros de terror para mostrar" << std::endl;
+                        } else {
+                            std::cout << "Listando los libros de Terror: " << std::endl;
+                            listarGenero(v_terror, cont_terror);
+                        }
+                        break;
+                    case 'X':
+                        std::cout << "Saliendo del programa... " << std::endl;
+                        break;
+                    default:
+                        std::cout << "Opcion incorrecta!" << std::endl;
+                        break;
+                }
+
+            } while (respuesta_usario != 'X');
+        }
+
+
+    } while (respuesta_usario != 'S' && respuesta_usario != 'N');
 
     std::cout << "--- FIN DEL PROGRAMA --- " << std::endl;
-
-
+    
     return 0;
 }
 
