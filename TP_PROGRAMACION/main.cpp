@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-#define CANTIDAD_MINIMA_LIBROS 1
+#define CANTIDAD_MINIMA_LIBROS 10
 
 struct Libro {
     int codigo;
@@ -45,6 +45,9 @@ int main() {
     do {
         std::cout << "Por favor ingresa la cantidad de libros (>=10): ";
         std::cin >> cantidad_peliculas;
+        if (cantidad_peliculas < CANTIDAD_MINIMA_LIBROS) {
+            std::cout << "Por favor ingrese una cantidad >= 10." << std::endl;
+        }
     } while (cantidad_peliculas < CANTIDAD_MINIMA_LIBROS);
 
     while (cont < cantidad_peliculas) {
@@ -71,7 +74,7 @@ int main() {
 
             if (libro.tipo != 'D' && libro.tipo != 'T' && libro.tipo != 'A') {
 
-                std::cout << "Opcion incorrecta, por favor elija otra opcion tipo (A = Accion, D = Drama , T = Terror)"
+                std::cout << "Opcion incorrecta. Por favor elija otra opcion (A = Accion, D = Drama , T = Terror)"
                           << std::endl;
             }
 
@@ -111,10 +114,10 @@ int main() {
 
         std::cout << "Procesando pelicula (" << ++cont << "/" << cantidad_peliculas << ")..." << std::endl;
         std::cout << "(tipo = " << libro.tipo
-                  << ",autor = " << libro.autor
-                  << ",nombre = " << libro.nombre
-                  << ",codigo = " << libro.codigo
-                  << ",editorial = " << libro.editorial
+                  << ", autor = " << libro.autor
+                  << ", nombre = " << libro.nombre
+                  << ", codigo = " << libro.codigo
+                  << ", editorial = " << libro.editorial
                   << ")"
                   << std::endl;
 
@@ -170,7 +173,7 @@ int main() {
         if (respuesta_usario == 'S') {
 
             do {
-                std::cout << "Que listado desea ver?tipo (A = Accion, D = Drama , T = Terror, X para salir)"
+                std::cout << "Que listado desea ver? (A = Accion, D = Drama, T = Terror, X para salir)."
                           << std::endl;
                 std::cin >> respuesta_usario;
                 respuesta_usario = toupper(respuesta_usario);
@@ -217,7 +220,7 @@ int main() {
     } while (respuesta_usario != 'S' && respuesta_usario != 'N');
 
     std::cout << "--- FIN DEL PROGRAMA --- " << std::endl;
-    
+
     return 0;
 }
 
@@ -233,7 +236,7 @@ void listarGenero(Genero libros[], int longitud) {
     for (int i = 0; i < longitud; ++i) {
 
         std::cout << i + 1 << "- " << "codigo = " << libros[i].codigo
-                  << ",nombre = " << libros[i].nombre
+                  << ", nombre = " << libros[i].nombre
                   << std::endl;
 
     }
