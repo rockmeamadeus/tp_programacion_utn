@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TP_PROGRAMACION.dir/main.cpp.o"
-  "TP_PROGRAMACION.pdb"
   "TP_PROGRAMACION.exe"
+  "TP_PROGRAMACION.pdb"
   "libTP_PROGRAMACION.dll.a"
 )
 

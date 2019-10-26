@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-#define CANTIDAD_MINIMA_LIBROS 10
+#define CANTIDAD_MINIMA_LIBROS 3
 
 struct Libro {
     int codigo;
@@ -181,29 +181,13 @@ int main() {
 
                 switch (respuesta_usario) {
                     case 'A':
-                        if (cont_accion == 0) {
-                            std::cout << "No hay libros de accion para mostrar" << std::endl;
-                        } else {
-                            std::cout << "Listando los libros de Accion: " << std::endl;
-                            listarGenero(v_accion, cont_accion);
-                        }
+                        listarGenero(v_accion, cont_accion);
                         break;
                     case 'D':
-                        if (cont_drama == 0) {
-                            std::cout << "No hay libros de drama para mostrar" << std::endl;
-                        } else {
-                            std::cout << "Listando los libros de Drama: " << std::endl;
-                            listarGenero(v_drama, cont_drama);
-                        }
-
+                        listarGenero(v_drama, cont_drama);
                         break;
                     case 'T':
-                        if (cont_terror == 0) {
-                            std::cout << "No hay libros de terror para mostrar" << std::endl;
-                        } else {
-                            std::cout << "Listando los libros de Terror: " << std::endl;
-                            listarGenero(v_terror, cont_terror);
-                        }
+                        listarGenero(v_terror, cont_terror);
                         break;
                     case 'X':
                         std::cout << "Saliendo del programa... " << std::endl;
@@ -232,6 +216,11 @@ int main() {
  *
  */
 void listarGenero(Genero libros[], int longitud) {
+
+    if (longitud == 0) {
+        std::cout << "No hay libros para mostrar" << std::endl;
+        return;
+    }
 
     for (int i = 0; i < longitud; ++i) {
 
