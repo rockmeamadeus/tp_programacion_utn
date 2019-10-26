@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-#define CANTIDAD_MINIMA_LIBROS 3
+#define CANTIDAD_MINIMA_LIBROS 10
 
 struct Libro {
     int codigo;
