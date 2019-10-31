@@ -201,7 +201,7 @@ int main() {
         }
 
 
-    } while (respuesta_usario != 'S' && respuesta_usario != 'N');
+    } while (respuesta_usario != 'S' && respuesta_usario != 'N' && respuesta_usario != 'X');
 
     std::cout << "--- FIN DEL PROGRAMA --- " << std::endl;
 
